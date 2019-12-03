@@ -1,0 +1,33 @@
+{
+    "name": "graphql-cms",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon src/index.js --ext js --exec babel-node"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Zorken88/graphql-cms.git"
+    },
+    "author": "Miguel Muñoz Lucero",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Zorken88/graphql-cms/issues"
+    },
+    "homepage": "https://github.com/Zorken88/graphql-cms#readme",
+    "devDependencies": {
+        "@babel/core": "^7.7.4",
+        "@babel/node": "^7.7.4",
+        "@babel/preset-env": "^7.7.4",
+        "nodemon": "^2.0.1"
+    },
+    "dependencies": {
+        "apollo-server": "^2.9.12",
+        "graphql": "^14.5.8",
+        "pg": "^7.14.0",
+        "pg-hstore": "^2.3.3",
+        "sequelize": "^5.21.2",
+        "uuid": "^3.3.3"
+    }
+}
