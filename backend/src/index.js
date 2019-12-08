@@ -5,24 +5,8 @@ import { ApolloServer, makeExecutableSchema } from 'apollo-server'
 import models from './models'
 
 // Type Definitions
-const typeDefs = `
-    type Hello {
-        message : String!
-    }
-    
-    type Query {
-        sayHello(name : String!): Hello
-    }
-    `
-const resolvers = {
-    Query: {
-        sayHello: (_,args) => {
-            return {
-                message: `Hello ${args.name || 'world'}`
-            }
-        }        
-    }
-}
+import typeDefs from './graphql/types'
+import resolvers from './graphql/resolvers'
 
 // Schema
 const schema = makeExecutableSchema({
@@ -39,6 +23,8 @@ const apolloServer = new ApolloServer({
 })
 
 // Running Apollo Server
-models.sequelize.sync({ force: true}).then(() => {
+const alter = true
+const force = false
+models.sequelize.sync({ alter, force}).then(() => {
     apolloServer.listen(5000).then(({url}) => console.log(`Running on ${url}`))
 })
